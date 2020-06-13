@@ -6,8 +6,11 @@ I found that these were really temperamental when it came to actually having an 
 * Make sure you include the **SPI** library, as the **RH_ASK** library depends on it.
 * Remember that the buffer size on the receiver needs to be the number of characters(including whitespace) that the transmitter sends.
 * Sending a string is different from sending a byte or an int. When you send a numerical value, you need to do some tricksy manipulating and send its reference as a pointer (i.e. (byte*) &myVal). My guess is that by doing so it tricks the radio into thinking it is sending an array, which is probably what it needs.
+* After you send a packet with `send()`, you need to also tell it to wait until it is sent with `waitPacketSent() before continuing.
 ## Projects Included
 ### blink
 Sends a simple byte, which the receiver then uses to determine when to turn an LED on or off.
 ### message
 Sends a string of characters, which the receiver prints to the Serial Monitor.
+### pot-to-servo
+Transmitter reads a pot value and sends it to the receiver, which then moves a servo accordingly. However, the servo visibly lags behind and is choppy, making me think the total time between pot-to-servo is over 100ms. Not the modules you would want for fast responsiveness.
