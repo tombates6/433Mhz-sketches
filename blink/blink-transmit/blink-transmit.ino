@@ -1,14 +1,20 @@
-#define ledPin 13
+#include <RH_ASK.h>
+#include <SPI.h>
+
+RH_ASK rfTx;
 
 void setup() {
-  pinMode(ledPin, OUTPUT);
-
+  rfTx.init();
 }
 
+const byte on = 1;
+const byte off = 0;
 void loop() {
-  digitalWrite(ledPin, HIGH);
+  rfTx.send((byte*)&on, sizeof(byte));
+  rfTx.waitPacketSent();
   delay(1000);
-  digitalWrite(ledPin, LOW);
+  rfTx.send((byte*)&off, sizeof(byte));
+  rfTx.waitPacketSent();
   delay(1000);
 
 }
