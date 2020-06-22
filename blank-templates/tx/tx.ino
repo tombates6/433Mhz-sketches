@@ -1,6 +1,7 @@
 #include <RH_ASK.h>
 #include <SPI.h>
 
+//TX Pin is automatically assigned to Pin 12.
 RH_ASK rfTx;
 
 void setup() {
