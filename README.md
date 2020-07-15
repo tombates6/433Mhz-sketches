@@ -14,3 +14,5 @@ Sends a simple byte, which the receiver then uses to determine when to turn an L
 Sends a string of characters, which the receiver prints to the Serial Monitor.
 ### pot-to-servo
 Transmitter reads a pot value and sends it to the receiver, which then moves a servo accordingly. However, the servo visibly lags behind and is choppy, making me think the total time between pot-to-servo is over 100ms. Not the modules you would want for fast responsiveness.
+
+## A change
